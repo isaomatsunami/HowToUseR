@@ -1,0 +1,492 @@
+plot(res)
+res
+distMatrix
+rownames(distMatrix) <- d$市区町村
+dim(distMatrix)
+class(distMatrix)
+rownames(distMatrix) <- d$市区町村
+help(dist)
+help(hclust)
+plot(res,labels=d$市区町村)
+quartzFont()
+quartzFonts()
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+AbsSupport <- data.frame( Jimin=d$自由民主党/d$投票総数, Minshu=d$民主党/d$投票総数, Kome=d$公明党/d$投票総数, Minna=d$みんなの党/d$投票総数, Shamin=d$社会民主党/d$投票総数 )#
+distMatrix <- dist(AbsSupport,method="euclidean")#
+res <- hclust(distMatrix, method="ward.D")#
+plot(res,labels=d$市区町村)
+cuttree(res,3)
+cutree(res,3)
+d$cut2 <- cutree(res, 2)
+d$cut3 <- cutree(res, 3)
+d$cut4 <- cutree(res, 4)
+d$cut5 <- cutree(res, 5)
+summary(d)
+read.xls(
+)
+library(gdata)
+write.xls(f,"clust.xls")
+write.table(d,"clust.csv")
+write.table(d,"clust.csv",sep=",")
+write.table(d,"clust.csv",sep=",",row.names=FALSE)
+d.cmd <- cmdscale(distMatrix)
+plot(d.cmd)
+text(d.cmd,d$市区町村)
+plot(d.cmd,type="n")
+text(d.cmd,d$市区町村)
+plot(d.cmd,type="n")
+text(d.cmd,rownames(d.cmd))
+d.cmd
+str(d.cmd)
+plot(d.cmd,type="n")
+text(d.cmd,labels=d$市区町村)
+help(cmdscale)
+plot(d.cmd,type="n")
+text(d.cmd,labels=d$市区町村)
+help(text)
+plot(d.cmd,type="n")
+text(d.cmd,labels=d$市区町村,cex=1)
+text(d.cmd,labels=d$市区町村,cex=0.5)
+plot(d.cmd,type="n")
+text(d.cmd,labels=d$市区町村,cex=0.5)
+som
+library(som)
+g <- somgrid(topo="hexagonal",xdim=5,ydim=5)
+g
+g <- somgrid(topo="hexagonal",xdim=5,ydim=5)
+str(d)
+str(AbsSupport)
+poll <- som(AbsSupport, g, rlen=200)
+poll <- som(as.matrix(AbsSupport), g, rlen=200)
+g <- somgrid(topo="hexagonal",xdim=8,ydim=8)
+poll <- som(as.matrix(AbsSupport), g, rlen=200)
+as.matrix(AbsSupport)
+help(som)
+poll <- som(as.matrix(AbsSupport), g)
+poll <- som(as.matrix(AbsSupport), 8,8, rlen=200)
+summary(poll)
+plot(poll)
+plot(poll,type="codes")
+plot.kohonen(poll,type="codes")
+poll <- som(as.matrix(AbsSupport), 10,10, rlen=200)
+plot(poll,type="codes")
+plot(poll)
+poll.new
+str(poll)
+text(poll$visual$x,poll$visual$y,labels=d$市区町村,cex=0.5)
+poll <- som(as.matrix(AbsSupport), 20,20, rlen=200)
+plot(poll)
+text(poll$visual$x,poll$visual$y,labels=d$市区町村,cex=1)
+a <- c(0,2,4.0,10.2)
+is.vector(a)
+b <- as.integer(a)
+class(b)
+b
+d <- read.table("data/SaninP2013Tokyo.csv",sep=",",header=TRUE)
+AbsSupport <- data.frame( Jimin=d$自由民主党/d$投票総数, Minshu=d$民主党/d$投票総数, Kome=d$公明党/d$投票総数, Minna=d$みんなの党/d$投票総数, Shamin=d$社会民主党/d$投票総数 )#
+distMatrix <- dist(AbsSupport,method="euclidean")
+d.cmd <- cmdscale(d)#
+plot(d.cmd,type="n")#
+text(d.cmd,labels=rownames(d),cex=0.5)
+d.cmd <- cmdscale(distMatrix)#
+plot(d.cmd,type="n")#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+text(d.cmd,labels=d$市区町村,cex=0.8)
+library(spatial)
+library(gstat)
+library(gstat)
+library(gstat)
+library(gstat)
+library(gstat)
+library(gstat)
+help(gstat)
+library(sp)#
+data(meuse)#
+coordinates(meuse) = ~x+y#
+# let's do some manual fitting of two direct variograms and a cross variogram#
+g <- gstat(id = "ln.zinc", formula = log(zinc)~1, data = meuse)#
+g <- gstat(g, id = "ln.lead", formula = log(lead)~1, data = meuse)#
+# examine variograms and cross variogram:#
+plot(variogram(g))
+plot(variogram(g))
+d.cmd
+kriging
+library(kriging)
+library(kriging)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )
+image(kriged, xlim = extendrange(x), ylim = extendrange(y))
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+plot(d.cmd,type="n")
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+text(d.cmd,labels=d$市区町村,cex=0.5)
+library(ggplot2)
+p <- ggplot(mtcars, aes(wt, mpg)) + geom_point()
+p <- ggplot(mtcars, aes(wt, mpg)) + geom_point()
+plot(d.cmd,type="n")
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minshu )
+plot(d.cmd,type="n")
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kyosan )
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Shamin )
+plot(d.cmd,type="n")
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kome )
+plot(d.cmd,type="n")
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+text(d.cmd,labels=d$市区町村,cex=0.5)
+str(kriged)
+plot(d.cmd,type="n")
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+contour(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+contour(kriged)
+contour(kriged$map$x,kriged$map$y,kriged$map$pred)
+help(contour)
+kriged$map$x
+kriged$map$y
+str(kriged)
+length(kriged$map$pred)
+help(kriging)
+unique(kriged$map$x)
+length(unique(kriged$map$x))
+length(unique(kriged$map$y))
+xx <- unique(kriged$map$y)
+xx <- xx[order(xx)]
+xx
+kriged$map$x[1:150]
+kriged$map$y[1:150]
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]
+contour(x_order,y_order,kriged$map$pred)
+contour(x_order,y_order,as.matrix(kriged$map$pred, ncol=length(x_order)))
+z <- as.matrix( kriged$map$pred,  )
+z
+help(as.matrix)
+z <- as.matrix( kriged$map$pred, ncol = length(x_order), byrow = FALSE )
+z
+str(z)
+length(x_order)
+z <- as.matrix( data=kriged$map$pred, ncol = length(x_order), byrow = FALSE )
+z <- as.matrix( kriged$map$pred, ncol = length(x_order), byrow = FALSE )
+dim(z)
+z <- as.matrix( kriged$map$pred, ncol = length(x_order), nrow=length(y_order), byrow = FALSE )
+dim(z)
+z <- as.matrix( kriged$map$pred, ncol = length(x_order), nrow=length(y_order), byrow = TRUE )
+dim(z)
+class(z)
+length(kriged$map$pred)
+as.matrix( seq(10),ncol=5 )
+as.matrix( seq(10),ncol=2 )
+z <- matrix( kriged$map$pred, ncol = length(x_order), nrow=length(y_order), byrow = TRUE )
+z
+dim(z)
+z <- matrix( kriged$map$pred, ncol = length(x_order), nrow=length(y_order), byrow = TRUE )
+contour(x_order,y_order, z)
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )
+contour(x_order,y_order, z)
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+contour(x_order,y_order, z)
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+contour(x_order,y_order, z,add=T)
+text(d.cmd,labels=d$市区町村,cex=0.5)
+d
+AbsSupport
+AbsSupport$kome
+AbsSupport$Kome
+AbsSupport$Kome[36]
+d$市区町村[36]
+d <- read.table("data/SaninP2013Tokyo.csv",sep=",",header=TRUE)
+str(d)
+d$市区町村 <- as.character(d$市区町村)
+str(d)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kome )#
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+AbsSupport$Kome[36]
+d$市区町村[36]
+d$市区町村[30:34]
+d$市区町村[30:40]
+d$市区町村[40:50]
+d$市区町村[45]
+d$市区町村[44]
+AbsSupport$Kome[44]
+AbsSupport <- data.frame( Jimin=d$自由民主党/d$投票総数, Minshu=d$民主党/d$投票総数, Kome=d$公明党/d$投票総数, Kyosan=d$日本共産党/d$投票総数, Minna=d$みんなの党/d$投票総数, Shamin=d$社会民主党/d$投票総数 )#
+distMatrix <- dist(AbsSupport,method="euclidean")#
+res <- hclust(distMatrix, method="ward.D")#
+plot(res,labels=d$市区町村)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kome )#
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )#
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minshu )#
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kyosan )#
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minna )#
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minna )#
+plot(d.cmd,type="n",main="みんなの党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+plot(d.cmd,type="n",mtext="みんなの党")
+plot(d.cmd,type="n",title="みんなの党")
+help(plot)
+plot(d.cmd,type="n",main="みんなの党")
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )#
+plot(d.cmd,type="n", main="自民党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )#
+plot(d.cmd,type="n")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE, main="自民党")#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+plot(d.cmd,type="n")
+plot(d.cmd,type="n", main="自民党")
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]))
+plot(d.cmd,type="n", main="自民党")
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minna )#
+plot(d.cmd,type="n", main="みんなの党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )#
+plot(d.cmd,type="n", main="自民党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+AbsSupport <- data.frame( Jimin=d$自由民主党/d$投票総数, Minshu=d$民主党/d$投票総数*3, Kome=d$公明党/d$投票総数, Kyosan=d$日本共産党/d$投票総数, Minna=d$みんなの党/d$投票総数, Shamin=d$社会民主党/d$投票総数 )#
+distMatrix <- dist(AbsSupport,method="euclidean")
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )#
+plot(d.cmd,type="n", main="自民党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+d.cmd <- cmdscale(distMatrix)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )#
+plot(d.cmd,type="n", main="自民党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minshu )#
+plot(d.cmd,type="n", main="民主党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kyosan )#
+plot(d.cmd,type="n", main="共産党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kome )#
+plot(d.cmd,type="n", main="公明党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minna )#
+plot(d.cmd,type="n", main="みんなの党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minshu )#
+plot(d.cmd,type="n", main="民主党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+d <- d[d$有効投票>1000]
+d <- d[d$有効投票>1000,]
+d
+d$有効投票>1000
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+d <- read.table("data/SaninP2013Tokyo.csv",sep=",",header=TRUE)
+d$有効投票>1000
+d$有効投票>2000
+d$市区町村 <- as.character(d$市区町村)
+d <- d[d$有効投票>2000,]
+AbsSupport <- data.frame( Jimin=d$自由民主党/d$投票総数, Minshu=d$民主党/d$投票総数, Kome=d$公明党/d$投票総数, Kyosan=d$日本共産党/d$投票総数, Minna=d$みんなの党/d$投票総数, Shamin=d$社会民主党/d$投票総数 )#
+distMatrix <- dist(AbsSupport,method="euclidean")
+d.cmd <- cmdscale(distMatrix)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )#
+plot(d.cmd,type="n", main="自民党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minshu )#
+plot(d.cmd,type="n", main="民主党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kyosan )#
+plot(d.cmd,type="n", main="共産党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Kome )#
+plot(d.cmd,type="n", main="公明党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Minna )#
+plot(d.cmd,type="n", main="みんなの党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+kriged <- kriging(d.cmd[,1], d.cmd[,2], AbsSupport$Jimin )#
+plot(d.cmd,type="n", main="自民党")#
+image(kriged, xlim = extendrange(d.cmd[,1]), ylim = extendrange(d.cmd[,2]), add=T)#
+x_unique <- unique(kriged$map$x)#
+x_order <- x_unique[order(x_unique)]#
+y_unique <- unique(kriged$map$y)#
+y_order <- y_unique[order(y_unique)]#
+z <- matrix( kriged$map$pred, ncol=length(y_order), byrow = TRUE )#
+contour(x_order,y_order, z, add=TRUE)#
+text(d.cmd,labels=d$市区町村,cex=0.5)
+hist(AbsSupport$Jimin)
+hist(AbsSupport$Minshu)
+hist(AbsSupport$Kome)
+hist(AbsSupport$Kyosan)
+hist(AbsSupport$Minshu)

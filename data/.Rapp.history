@@ -1,0 +1,301 @@
+old_par <- par(cex.axis=1, cex.lab=1.5, cex.main=1.5,mar=c(4,4,1,1))#
+layout(matrix(1:6,3,2,byrow=TRUE)) # 画面を分割#
+titles <- c("~20","30","40","50","60","70~")#
+for (i in 1:6){#
+	d_by_age <- d[d$AGE == i, ]#
+	table_by_age <- table(d_by_age$Q1)#
+	col <- c("Jimin","Min","Kome","Kyosan","Ishin","Shamin","Seika","other","No","NA")#
+	barplot( table_by_age, main=titles[i], colnames=col)#
+}#
+layout(1)#
+par(old_par)
+help(barplot)
+old_par <- par(cex.axis=1, cex.lab=1.5, cex.main=1.5,mar=c(4,4,1,1))#
+layout(matrix(1:6,3,2,byrow=TRUE)) # 画面を分割#
+titles <- c("~20","30","40","50","60","70~")#
+for (i in 1:6){#
+	d_by_age <- d[d$AGE == i, ]#
+	table_by_age <- table(d_by_age$Q1)#
+	col <- c("Jimin","Min","Kome","Kyosan","Ishin","Shamin","Seika","other","No","NA")#
+	barplot( table_by_age, main=titles[i], names.arg=col)#
+}#
+layout(1)#
+par(old_par)
+old_par <- par(cex.axis=1, cex.lab=1.5, cex.main=1.5,mar=c(4,4,4,1))#
+layout(matrix(1:6,3,2,byrow=TRUE)) # 画面を分割#
+titles <- c("~20","30","40","50","60","70~")#
+for (i in 1:6){#
+	d_by_age <- d[d$AGE == i, ]#
+	table_by_age <- table(d_by_age$Q1)#
+	col <- c("Jimin","Min","Kome","Kyosan","Ishin","Shamin","Seika","other","No","NA")#
+	barplot( table_by_age, main=titles[i], names.arg=col)#
+}#
+layout(1)#
+par(old_par)
+table(d$AGE,d$Q1)
+t1 <- table(d$AGE,d$Q1)
+t2 <- addmargins(t1)
+t2
+t1 <- table(d$AGE,d$Q1)
+addmargins(t1)
+ftable(d$SEX,d$AGE,d$Q1)
+source("/Users/isao/Desktop/all.R")
+cross(d$SEX,d$AGE,d$Q1)
+cross(d$AGE,d$Q1)
+cross(d, 1, 2)
+cross
+cross(1, 2, d)
+cross(1, 2, d, latex=FALSE)
+cross(5, 6, d, latex=FALSE)
+(2500 + 1250 + 880 + 880) / 5
+d <- read.table("SaninP2013Tokyo.csv")
+getwd()
+d <- read.table("SaninP2013Tokyo.csv")
+d
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+d
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+str(d)
+AbsSupport <- data.frame( Jimin=d$自由民主党/d$投票総数, Minshu=d$民主党/d$投票総数, Kome=d$公明党/d$投票総数, Minna=d$みんなの党/d$投票総数, Shamin=d$社会民主党/d$投票総数 )
+distMatrix <- dist(AbsSupport,method="euclidean")
+res <- hclust(distMatrix, method="ward")
+res <- hclust(distMatrix, method="ward.D")
+plot(res)
+res
+distMatrix
+rownames(distMatrix) <- d$市区町村
+dim(distMatrix)
+class(distMatrix)
+rownames(distMatrix) <- d$市区町村
+help(dist)
+help(hclust)
+plot(res,labels=d$市区町村)
+quartzFont()
+quartzFonts()
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+AbsSupport <- data.frame( Jimin=d$自由民主党/d$投票総数, Minshu=d$民主党/d$投票総数, Kome=d$公明党/d$投票総数, Minna=d$みんなの党/d$投票総数, Shamin=d$社会民主党/d$投票総数 )#
+distMatrix <- dist(AbsSupport,method="euclidean")#
+res <- hclust(distMatrix, method="ward.D")#
+plot(res,labels=d$市区町村)
+cuttree(res,3)
+cutree(res,3)
+d$cut2 <- cutree(res, 2)
+d$cut3 <- cutree(res, 3)
+d$cut4 <- cutree(res, 4)
+d$cut5 <- cutree(res, 5)
+summary(d)
+read.xls(
+)
+library(gdata)
+write.xls(f,"clust.xls")
+write.table(d,"clust.csv")
+write.table(d,"clust.csv",sep=",")
+write.table(d,"clust.csv",sep=",",row.names=FALSE)
+d.cmd <- cmdscale(distMatrix)
+plot(d.cmd)
+text(d.cmd,d$市区町村)
+plot(d.cmd,type="n")
+text(d.cmd,d$市区町村)
+plot(d.cmd,type="n")
+text(d.cmd,rownames(d.cmd))
+d.cmd
+str(d.cmd)
+plot(d.cmd,type="n")
+text(d.cmd,labels=d$市区町村)
+help(cmdscale)
+plot(d.cmd,type="n")
+text(d.cmd,labels=d$市区町村)
+help(text)
+plot(d.cmd,type="n")
+text(d.cmd,labels=d$市区町村,cex=1)
+text(d.cmd,labels=d$市区町村,cex=0.5)
+plot(d.cmd,type="n")
+text(d.cmd,labels=d$市区町村,cex=0.5)
+som
+library(som)
+g <- somgrid(topo="hexagonal",xdim=5,ydim=5)
+g
+g <- somgrid(topo="hexagonal",xdim=5,ydim=5)
+str(d)
+str(AbsSupport)
+poll <- som(AbsSupport, g, rlen=200)
+poll <- som(as.matrix(AbsSupport), g, rlen=200)
+g <- somgrid(topo="hexagonal",xdim=8,ydim=8)
+poll <- som(as.matrix(AbsSupport), g, rlen=200)
+as.matrix(AbsSupport)
+help(som)
+poll <- som(as.matrix(AbsSupport), g)
+poll <- som(as.matrix(AbsSupport), 8,8, rlen=200)
+summary(poll)
+plot(poll)
+plot(poll,type="codes")
+plot.kohonen(poll,type="codes")
+poll <- som(as.matrix(AbsSupport), 10,10, rlen=200)
+plot(poll,type="codes")
+plot(poll)
+poll.new
+str(poll)
+text(poll$visual$x,poll$visual$y,labels=d$市区町村,cex=0.5)
+poll <- som(as.matrix(AbsSupport), 20,20, rlen=200)
+plot(poll)
+text(poll$visual$x,poll$visual$y,labels=d$市区町村,cex=1)
+Name <- c("Andy","Betty","Charlie","Denny")#
+Blood <- c("A","B","A","O")
+Height <- c(150,160,170,180)
+Weight <- c(40,50,60,70)
+Member <- data.frame(Name,Height,Weight,Blood)
+Member$Blood
+Member[4,]
+Member[[4,]]
+Member[[4]]
+Member[[4,]]
+Member[[,4]]
+length(Member[[4]])
+class(Member[[4]])
+class(Member[4])
+Member[4]
+class(Member$Blood)
+Member[[4]]
+dim(Member[[4]])
+class(Member[[4]])
+class(Member[4])
+Member[4,]
+Member[,4]
+Member$Name <- as.character(Member$Name)
+Member
+Member[2]
+Member[2,]
+Member[,2]
+Member[1:2,]
+Member[,1:2]
+Member[-(1:2),]
+c <- 1:40#
+trio <- sample(c, 3)
+trio
+rep(2:4)
+rep(2:4, 1)
+rep(2:4, 3)
+rep(2:4, each=3)
+help(rep)
+rep(2:4, length.out=10)
+getwd()
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+d
+head(d)
+d <- d[,c(-2,-3)]
+head(d)
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+d <- d[,c(-2,-3,-4)]
+head(d)
+rowname <- d[,1]
+rowname[1:5]
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+d <- d[,c(-1,-2,-3,-4)]
+head(d)
+rowname（d)
+rowname（d) <- rowname
+head(d)
+d <- read.table("SaninP2013Tokyo.csv",sep=",",header=TRUE)
+rownames
+r_names <- d[,1]
+rownames(d) <- r_names
+head(d)
+d <- d[,c(-1,-2,-3,-4)]#
+head(d)
+apply(d,1,sum)
+d_sum <- apply(d,1,sum)
+sum(d[1,])
+d[1,1]/sum(d[1,])
+d/d_sum
+d[1,2]/sum(d[1,])
+d_ratio <- d/d_sum
+d_row_ave <- apply(d_ratio,2,mean)
+apply(d_ratio,2,mean)
+help(distance)
+help(dist)
+nRow <- nrow(d)
+nRow
+for( i in 1:n ){
+d_ratio[i,] <- d_ratio[i,] - d_row_ave
+}
+for( i in 1:nRow ){
+d_ratio[i,] <- d_ratio[i,] - d_row_ave
+}
+head(d_ratio)
+d_sqrt <- d_ratio*d_ratio
+head( d_sqrt )
+for ( i in 1:nRow){}
+for ( i in 1:nRow){
+d_sqrt[i,] <- d_sqrt[i,] / d_row_ave
+}
+head( d_sqrt )
+apply(d_sqrt,2,sum)
+apply(d_sqrt,1,sum)
+library(MASS)
+d
+library(MASS)
+d.cor <- corresp(d, nf=3)
+d_nteger <- as.integer(d)
+as.integer(d[,1])
+as.integer(d[1,])
+for ( i in 1:nRow){
+d[i,] <- as.integer(d[i,])
+}
+d.cor <- corresp(d, nf=3)
+d.cor
+d.cor <- corresp(d, nf=7)
+eigen <- d.cor$cor^2
+eigen/sum(eigen)
+d.cor <- corresp(d, nf=4)
+eigen <- d.cor$cor^2
+eigen/sum(eigen)
+biplot(d.cor)
+biplot
+str(d.cor)
+d.cor$rscore
+d.cor$rscore[,1:2]
+library(kriging)
+kriged <- kriging( d.cor$rscore[,1], d.cor$rscore[,1], d_ratio$みどりの党)
+kriged <- kriging( d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$みどりの党)
+d_ratio$みどりの党
+biplot(d.cor)
+kriged <- kriging( d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$緑の党)
+biplot(d.cor)
+image(kriged, add=T)
+plot(d.cor$rscore[,1], d.cor$rscore[,2],rownames(d))
+texts(d.cor$rscore[,1], d.cor$rscore[,2],rownames(d))
+text(d.cor$rscore[,1], d.cor$rscore[,2],rownames(d))
+image(kriged, add=T)
+plot(d.cor$rscore[,1], d.cor$rscore[,2],d_ratio$緑の党)
+plot(d.cor$rscore[,1:2],d_ratio$緑の党)
+help(plot)
+plot(d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$緑の党)
+plot(d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$緑の党,type="p")
+plot(d.cor$rscore[,1], d.cor$rscore[,2], type="n")
+text(d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$緑の党)
+plot(d.cor$rscore[,1], d.cor$rscore[,2], type="n")
+text(d.cor$rscore[,1], d.cor$rscore[,2], rownames(d_ratio))
+image(kriged, add=T)
+text(d.cor$rscore[,1], d.cor$rscore[,2], rownames(d_ratio))
+biplot(d.cor)
+kriged <- kriging( d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$公明党)#
+plot(d.cor$rscore[,1], d.cor$rscore[,2], type="n")#
+image(kriged, add=T)#
+text(d.cor$rscore[,1], d.cor$rscore[,2], rownames(d_ratio))
+biplot(d.cor)
+kriged <- kriging( d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$民主党)#
+plot(d.cor$rscore[,1], d.cor$rscore[,2], type="n")#
+image(kriged, add=T)#
+text(d.cor$rscore[,1], d.cor$rscore[,2], rownames(d_ratio))
+kriged <- kriging( d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$自民党)#
+plot(d.cor$rscore[,1], d.cor$rscore[,2], type="n")#
+image(kriged, add=T)#
+text(d.cor$rscore[,1], d.cor$rscore[,2], rownames(d_ratio))
+kriged <- kriging( d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$自由民主党)#
+plot(d.cor$rscore[,1], d.cor$rscore[,2], type="n")#
+image(kriged, add=T)#
+text(d.cor$rscore[,1], d.cor$rscore[,2], rownames(d_ratio))
+kriged <- kriging( d.cor$rscore[,1], d.cor$rscore[,2], d_ratio$自由民主党)#
+plot(d.cor$rscore[,1], d.cor$rscore[,2], type="n")#
+image(kriged, add=T)#
+text(d.cor$rscore[,1], d.cor$rscore[,2], rownames(d_ratio))
